@@ -14,13 +14,81 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg-image {
+  height: 300px;
+  width: 600px;
+}
+
+/* BACKGROUND CONTAINER */
+.background-image {
+  position: relative;
+  width: 100%;                 /* responsive */
+  max-width: 1000px;           /* optional */
+  aspect-ratio: 16 / 9;        /* MUST match your image */
+  background-image: url('/img/bg-desk.png');
+  background-size: cover;
+  background-position: center;
+}
+
+/* HOTSPOTS */
+.hotspot-computer,
+.hotspot-picture {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;  /* make sure it's above the background */
+}
+
+.hotspot-computer {
+  top: 36%;     
+  left: 25%;   
+  width: 29%;
+  height: 45%;
+
+  clip-path: polygon(
+    28% 0%, 
+    28% 60%, 
+    0% 88%, 
+    78% 99%, 
+    90% 79%, 
+    88% 68%, 
+    98% 60%, 
+    100% 0%);
+
+}
+
+.hotspot-picture {
+  top: 40%;     
+  left: 54%;   
+  width: 29%;
+  height: 45%;
+
+  clip-path: polygon(
+    6% 1%,
+    0% 72%, 
+    44% 76%, 
+    51% 2%);
+}
+
+/* .hotspot-computer.debug,
+.hotspot-picture.debug {
+  border: 2px solid lime;
+  background-color: rgba(0, 255, 0, 0.2);
+} */
+
+/* CHANGE BACKGROUND ON HOVER */
+.background-image:hover:has(.hotspot-computer:hover) {
+  background-image: url('/img/bg-desk-select-computer.png');
+}
+
+.background-image:hover:has(.hotspot-picture:hover) {
+  background-image: url('/img/bg-desk-select-picture.png');
 }
