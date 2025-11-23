@@ -19,6 +19,7 @@
 }
 
 body {
+  background-color: #050808;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -37,6 +38,20 @@ body {
   background-image: url('/img/bg-desk.png');
   background-size: cover;
   background-position: center;
+
+   /* fade edges to transparent */
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: cover;
+
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: cover;
+
+  /* fallback background color behind the transparent edges */
+  background-color: #fdfdfd;
 }
 
 /* HOTSPOTS */
