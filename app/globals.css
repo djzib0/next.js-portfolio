@@ -29,8 +29,20 @@ body {
   width: 600px;
 }
 
+/* scumm look alike font */
+
+.text-start2P {
+  font-family: var(--font-start2P), monospace;
+  -webkit-font-smoothing: none;       
+  -moz-osx-font-smoothing: auto;
+  image-rendering: pixelated;          
+  color: #ffffff;                     
+  /* -webkit-text-stroke: 0.5px #000000;    */
+}
+
 /* BACKGROUND CONTAINER */
 .background-image {
+  transform: translateZ(0);
   position: relative;
   width: 100%;                 /* responsive */
   max-width: 1000px;           /* optional */
@@ -56,10 +68,11 @@ body {
 
 /* HOTSPOTS */
 .hotspot-computer,
-.hotspot-picture {
+.hotspot-picture,
+.hotspot-folders {
   position: absolute;
   cursor: pointer;
-  z-index: 10;  /* make sure it's above the background */
+  z-index: 10; 
 }
 
 .hotspot-computer {
@@ -76,8 +89,8 @@ body {
     90% 79%, 
     88% 68%, 
     98% 60%, 
-    100% 0%);
-
+    100% 0%
+  );
 }
 
 .hotspot-picture {
@@ -90,11 +103,31 @@ body {
     6% 1%,
     0% 72%, 
     44% 76%, 
-    51% 2%);
+    51% 2%
+  );
 }
 
+.hotspot-folders {
+  top: 60%;     
+  left: 70%;   
+  width: 22%;
+  height: 30%;
+
+  clip-path: polygon(
+    40% 0%, 
+    97% 2%, 
+    97% 58%, 
+    60% 85%, 
+    5% 75%, 
+    5% 5%
+  );
+}
+
+
+
 /* .hotspot-computer.debug,
-.hotspot-picture.debug {
+.hotspot-picture.debug,
+.hotspot-folders.debug {
   border: 2px solid lime;
   background-color: rgba(0, 255, 0, 0.2);
 } */
@@ -106,4 +139,43 @@ body {
 
 .background-image:hover:has(.hotspot-picture:hover) {
   background-image: url('/img/bg-desk-select-picture.png');
+}
+
+.background-image:hover:has(.hotspot-folders:hover) {
+  background-image: url('/img/bg-desk-select-folders.png');
+}
+
+/* SHOW HOTSPOT TOOLTIP ON HOVER */
+.hotspot-computer-desc,
+.hotspot-picture-desc,
+.hotspot-folders-desc {
+  position: absolute;
+  padding: 4px 8px;
+  font-size: 25px;
+  color: black;
+  border-radius: 4px;
+  opacity: 0;          
+  pointer-events: none; 
+  transition: opacity 0.15s ease;
+}
+
+.hotspot-computer-desc {
+  top: 25%;
+  left: 32%;
+}
+
+.hotspot-picture-desc {
+  top: 32%;
+  left: 54%;
+}
+
+.hotspot-folders-desc {
+  top: 49%;
+  left: 70%;
+}
+
+.hotspot-computer:hover ~ .hotspot-computer-desc,
+.hotspot-picture:hover ~ .hotspot-picture-desc,
+.hotspot-folders:hover ~ .hotspot-folders-desc {
+  opacity: 1;
 }
