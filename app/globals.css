@@ -179,3 +179,90 @@ body {
 .hotspot-folders:hover ~ .hotspot-folders-desc {
   opacity: 1;
 }
+
+/* BACKDROP */
+.scumm-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* MODAL WINDOW */
+.scumm-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #1b1b2b; 
+  padding: 20px 24px;
+  width: 900px;
+  height: 600px;
+  border: 4px solid #e38c00; 
+  font-family: var(--font-start2P), monospace;
+  color: #d6d6ff;
+  text-align: center;
+}
+
+.scumm-modal-backdrop,
+.scumm-modal {
+  -webkit-mask: none !important;
+  mask: none !important;
+}
+
+/* TITLE */
+.scumm-modal-title {
+  margin: 0 0 12px;
+  font-size: 18px;
+  color: #ffffff;
+  -webkit-text-stroke: 1px #000;
+}
+
+/* BODY TEXT */
+.scumm-modal-text {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #cfd0ff;
+}
+
+/* CONTENT CONTAINER */
+.scumm-modal-content-container {
+  width: 500px;
+  height: 500px;
+  background-image: url('/img/screen-zoom.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 2px solid lime; /* debug */
+}
+
+/* BUTTON */
+.scumm-modal-btn {
+  position: absolute;
+  left: calc(50% - 75px);
+  bottom: 20px;
+  width: 150px;
+  margin: 20px auto 0 auto;
+  padding: 6px 14px;
+  font-family: var(--font-start2P), monospace;
+  color: #fff;
+  background: #2b2b4a;
+  border: 3px solid #8d7300;
+  box-shadow: 
+      0 0 0 2px #000,
+      0 0 8px #c25100 inset;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  -webkit-text-stroke: 1px #000;
+}
+
+.scumm-modal-btn:hover {
+  background: #3a3a62;
+  box-shadow:
+      0 0 0 2px #000,
+      0 0 12px #cc8c00 inset,
+      0 0 8px #cab600;
+}
+
