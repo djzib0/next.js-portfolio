@@ -1,7 +1,7 @@
 'use client'
 import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
-import ZoomModal from '../zoomModal/ZoomModal'
+import ZoomModal from '../computerZoomModal/ComputerZoomModal'
 
 const CenterContainer = () => {
 
