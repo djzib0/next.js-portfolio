@@ -18,15 +18,9 @@ const stackData = {
 const ComputerZoomModal = (
   {
     handleClose,
-    modalTitle,
-    imgUrl,
-    desc
   } 
   : {
     handleClose?: () => void;
-    modalTitle: string;
-    imgUrl: string;
-    desc: string;
   }
 ) => {
 
@@ -42,8 +36,13 @@ const ComputerZoomModal = (
   return (
     <div className="scumm-modal-backdrop">
       <div className="scumm-modal">
-        <h2 className="scumm-modal-title">{modalTitle}</h2>
-        <p className="scumm-modal-text">{desc}</p>
+        <h2 className="scumm-modal-title">My stack</h2>
+        <p className="scumm-modal-text">
+          You see a computer screen with a stack.
+        </p>
+        <p className="scumm-modal-text">
+          {`(Click icon on the screen to see details)`}
+        </p>
         <div className='scumm-modal-content-container'>
           <div className='scumm-modal-content-container__left'>
             <IoLogoJavascript 

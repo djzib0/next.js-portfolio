@@ -239,7 +239,7 @@ body {
   flex-direction: row;
   gap: 3em;
   padding: 3.2em 4.8em;
-  background-color: red;
+  background-color: #11140f;
   background-image: url('/img/screen_zoom.png');
   background-repeat: no-repeat;
   background-size: 480px;
@@ -248,14 +248,21 @@ body {
   width: 50%;
 }
 
+.scumm-modal-content-container__left.picture-bg {
+   background-image: url('/img/frame_zoom.png');
+   background-size: contain;
+   background-position: left;
+}
+
 /* stack icons */
 .stack-icon {
   font-size: 3em;
   color: #32CD32;
   background-color: transparent;
   font-family: "Courier New", monospace;
-  
+  cursor: pointer;  
 }
+
 .stack-icon__selected {
   color: #33FF33;
   border: 2px solid #33FF33;
@@ -263,16 +270,15 @@ body {
 
 
 .scumm-modal-content-container__right {
-  background-repeat: no-repeat;
-  background-size: 480px;
-  background-position: center;
-  padding: 4px;
+  background-color: #11140f;
+  width: 50%;
+  padding: 0.8em;
   text-align: justify;
-  font-size: .8em;
+  font-size: .7em;
   height: 300px;
   overflow-y: scroll;
   overflow-x: hidden;
-  width: 50%;
+  scrollbar-color: #d6d6ff #30304d;
 }
 
 /* BUTTON */

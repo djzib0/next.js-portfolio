@@ -1,16 +1,12 @@
 'use client'
 import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
-import ZoomModal from '../computerZoomModal/ComputerZoomModal'
+import ComputerZoomModal from '../computerZoomModal/ComputerZoomModal'
+import FrameZoomModal from '../frameZoomModal/FrameZoomModal'
 
 const CenterContainer = () => {
 
-  const [isModalOn, setIsModalOn] = useState(false);
-
-  const toggleModalOn = () => {
-    setIsModalOn(prevState => !prevState);
-  }
-
+  const [activeModal, setActiveModal] = useState<string | null>(null);
 
   const sayHello = () => {
     console.log("hello")
@@ -42,9 +38,9 @@ const CenterContainer = () => {
           <link rel="preload" as="image" href="/img/bg-desk-select-folders.png" />
         </Head>
 
-        <div className='hotspot-computer debug' onClick={toggleModalOn}></div>
-        <div className='hotspot-picture debug' onClick={sayHello}></div>
-        <div className='hotspot-folders debug' onClick={sayHello}></div>
+        <div className='hotspot-computer' onClick={() => setActiveModal("computer")}></div>
+        <div className='hotspot-picture' onClick={() => setActiveModal("picture")}></div>
+        <div className='hotspot-folders' onClick={sayHello}></div>
         <div className='hotspot-computer-desc'>
           <p className='text-start2P'>My stack</p>
         </div>
@@ -55,12 +51,14 @@ const CenterContainer = () => {
           <p className='text-start2P'>Projects</p>
         </div>
       </div>
-      {isModalOn && 
-        <ZoomModal 
-          handleClose={toggleModalOn} 
-          modalTitle='My stack'
-          imgUrl='img/screen_zoom.png'
-          desc='You see a computer screen with a stack.'
+      {activeModal === 'computer' &&
+        <ComputerZoomModal 
+          handleClose={() => setActiveModal(null)} 
+        />
+      }
+      {activeModal === 'picture' &&
+        <FrameZoomModal 
+          handleClose={() => setActiveModal(null)} 
         />
       }
     </>
